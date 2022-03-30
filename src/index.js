@@ -83,8 +83,37 @@ function init() {
             },
         ])
         .then(({name, id, email, github}) => {
-            const manager = new Engineer(id, name, email, github)
+            const engineer = new Engineer(id, name, email, github)
             teamMemberHtmlArr.push(generateManagerCard(engineer))
+            mainMenu();
+        });
+    }
+    function internCreate() {
+        inquirer.prompt([
+            {
+              type: 'input',
+              name: 'name',
+              message: 'What is the interns name?'
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: 'What is the interns email?'
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: 'What is the interns id?'
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: 'What is your school?'
+            },
+        ])
+        .then(({name, id, email, school}) => {
+            const intern = new Intern(id, name, email, school)
+            teamMemberHtmlArr.push(generateManagerCard(intern))
             mainMenu();
         });
     }

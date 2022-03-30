@@ -2,7 +2,7 @@ const generateManagerCard = (manager) => {
     return `
     <div class="card">
         <h3>${manager.getName()}</h3>
-            <p><i class="fa-solid fa-mug-hot"></i>${manager.gertRole()}</p>
+            <p><i class="fa-solid fa-mug-hot"></i>${manager.getRole()}</p>
             <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.getId()}</li>
@@ -47,7 +47,7 @@ const generateInternCard = (intern) => {
 `;
 };
 
-const baseHtml = `
+const baseHtml = (htmlArr) =>`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,8 +64,16 @@ const baseHtml = `
     </header>
     <div id="container">
     <div class="card-deck">
+    ${htmlArr.join(' ')}
     </div>
     </div>
 </body>
 </html>`
+
+module.exports = {
+    generateEngineerCard,
+    generateInternCard,
+    generateManagerCard,
+    baseHtml
+}
 

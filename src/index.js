@@ -2,9 +2,15 @@ const inquirer = require("inquirer")
 const path = require("path")
 const fs = require("fs")
 
-const Engineer = require("./lib/Engineer")
-const Manager = require("./lib/Manager")
-const Intern = require("./lib/Intern")
+const Engineer = require("./lib/engineer")
+const Manager = require("./lib/manager")
+const Intern = require("./lib/intern")
+
+const {
+    generateEngineerCard,
+    generateInternCard,
+    generateManagerCard,
+    baseHtml} = require("./src/htmlGen");
 
 const teamMemberHtmlArr = [];
 
@@ -53,7 +59,7 @@ function init() {
                 case "Engineer":
                     return engineerCreate();
                     case "Intern":
-                        return InternCreate();
+                        return internCreate();
                     default:
                         return generateHtml;
             }
@@ -84,7 +90,7 @@ function init() {
         ])
         .then(({name, id, email, github}) => {
             const engineer = new Engineer(id, name, email, github)
-            teamMemberHtmlArr.push(generateManagerCard(engineer))
+            teamMemberHtmlArr.push(generateEngineerCard(engineer))
             mainMenu();
         });
     }
@@ -113,9 +119,14 @@ function init() {
         ])
         .then(({name, id, email, school}) => {
             const intern = new Intern(id, name, email, school)
-            teamMemberHtmlArr.push(generateManagerCard(intern))
+            teamMemberHtmlArr.push(generateInternCard(intern))
             mainMenu();
         });
+    }
+    function generateHtml () {
+        fs.writeFile("./dist/index.html", baseHtml(teamMemberHtmlArr), (err) => {
+            err ? console.log(err) : console.log("Generated HTML File")
+        })
     }
     managerCreate();
 }

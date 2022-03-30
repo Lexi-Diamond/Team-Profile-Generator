@@ -58,10 +58,10 @@ function init() {
             switch (answers.addedRole) {
                 case "Engineer":
                     return engineerCreate();
-                    case "Intern":
-                        return internCreate();
-                    default:
-                        return generateHtml;
+                case "Intern":
+                    return internCreate();
+                case "I am finished":
+                    return generateHtml();
             }
         });
     }

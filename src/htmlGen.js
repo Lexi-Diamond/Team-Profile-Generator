@@ -1,6 +1,8 @@
 const generateManagerCard = (manager) => {
-    return `
+  return `
     <div class="card">
+    
+        <div class="col-md-3">
         <h3>${manager.getName()}</h3>
             <p><i class="fa-solid fa-mug-hot"></i>${manager.getRole()}</p>
             <div class="card-body">
@@ -10,29 +12,37 @@ const generateManagerCard = (manager) => {
                 </li>
                 <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
             </ul>
+           
+            </div>
         </div>
     </div>
 `;
 };
 const generateEngineerCard = (engineer) => {
-    return `
+  return `
     <div class="card">
-        <h3>${engineer.getName()}</h3>
-            <p><i class="fa-solid fa-mug-hot"></i>${engineer.getRole()}</p>
-            <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${engineer.getId()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+  
+    <div class="col-md-3">
+    <h3>${engineer.getName()}</h3>
+        <p><i class="fa-solid fa-mug-hot"></i>${engineer.getRole()}</p>
+        <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${engineer.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
                 </li>
                 <li class="list-group-item">Office Number: ${engineer.getGithub()}</li>
             </ul>
-        </div>
+            </div>
+           
+            </div>
     </div>
 `;
 };
 const generateInternCard = (intern) => {
-    return `
+  return `
     <div class="card">
+ 
+    <div class="col-md-3">
         <h3>${intern.getName()}</h3>
             <p><i class="fa-solid fa-mug-hot"></i>${intern.getRole()}</p>
             <div class="card-body">
@@ -42,12 +52,14 @@ const generateInternCard = (intern) => {
                 </li>
                 <li class="list-group-item">Office Number: ${intern.getSchool()}</li>
             </ul>
-        </div>
+            </div>
+           
+            </div>
     </div>
 `;
 };
 
-const baseHtml = (htmlArr) =>`
+const baseHtml = (htmlArr) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,16 +79,17 @@ const baseHtml = (htmlArr) =>`
     </header>
     <div id="container">
     <div class="card-deck">
-    ${htmlArr.join(' ')}
+    <div class="row">
+    ${htmlArr.join(" ")}
+    </div>
     </div>
     </div>
 </body>
-</html>`
+</html>`;
 
 module.exports = {
-    generateEngineerCard,
-    generateInternCard,
-    generateManagerCard,
-    baseHtml
-}
-
+  generateEngineerCard,
+  generateInternCard,
+  generateManagerCard,
+  baseHtml,
+};

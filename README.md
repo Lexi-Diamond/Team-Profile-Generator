@@ -7,6 +7,13 @@ Node, HTML, Bootstrap, Inquirer, Javascript
 A user can use this application to generate profiles for memebers of their team including; managers, engeneers and interns using the comand line. Once the user initializes the app by typing "node index.js" into their command line they will be asked a serries of unique questions about their team members. Once all of the questions have been answered the user will be presented with an HTML document in the dist folder which they can run in their browser to display the information they input into the command line as an easy to read doccument. 
 
 ## Links 
+https://github.com/Lexi-Diamond/Team-Profile-Generator.git
+https://drive.google.com/file/d/1o1mKxMeGiR2h6cmUrRL1Ow65IQV0js5J/view
+
+## Questions
+Email: alexis.dorrity@gmail.com
+Github: Lexi-Diamond
+
 
 
 
